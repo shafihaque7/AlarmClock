@@ -13,6 +13,8 @@ import android.util.Log;
 import android.widget.MediaController;
 import android.widget.Toast;
 
+import static com.example.rafisantu.alarmclock.MainActivity.locationListener;
+
 /**
  * Created by rafisantu on 9/3/2017.
  */
@@ -61,6 +63,7 @@ public class RingtonePlayingService extends Service {
             media_song = MediaPlayer.create(this, R.raw.dove);
             // start the ringtone
             media_song.start();
+            MainActivity.locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
 
             this.isRunning = true;
             //this.startId =0;// might change this

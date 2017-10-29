@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
     double Longitude;
 
     TextView locationText;
-    private LocationListener locationListener;
-    private LocationManager locationManager;
+    static LocationListener locationListener;
+    static LocationManager locationManager;
 
     //Stuff from the alarm
 
@@ -72,12 +72,16 @@ public class MainActivity extends AppCompatActivity {
         //Initialize our text update box.
         update_text = (TextView) findViewById(R.id.update_text);
 
+
+
         //Create an instance of the calendar
         final Calendar calendar = Calendar.getInstance();
 
 
         // Creating the intent
         my_intent = new Intent(this.context, Alarm_Receiver.class);
+
+
 
 
 
@@ -129,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                 alarm_manager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),pending_intent);
 
                 // create the spinner in the main UI.
-                locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
+                //locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
 
             }
         });
