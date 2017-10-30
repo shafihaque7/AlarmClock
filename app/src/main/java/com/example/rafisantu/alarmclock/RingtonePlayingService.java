@@ -49,6 +49,10 @@ public class RingtonePlayingService extends Service {
             case "alarm off":
                 startId = 0;
                 Log.e("Start ID is ", state);
+                MainActivity.locationManager.removeUpdates(locationListener);
+                MainActivity.get_initial_location = true;
+
+
                 break;
             default:
                 startId = 0;
@@ -64,6 +68,7 @@ public class RingtonePlayingService extends Service {
             // start the ringtone
             media_song.start();
             MainActivity.locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
+
 
             this.isRunning = true;
             //this.startId =0;// might change this

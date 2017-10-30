@@ -31,7 +31,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     //Latitude and Longitude stuff
-    boolean get_initial_location = true;
+    static boolean get_initial_location = true;
     double initial_Latitude;
     double initial_Longitude;
 
